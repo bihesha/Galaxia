@@ -34,7 +34,7 @@ export default function EditForm ({userId, onClose}) {
 
     const updateUser = async () => {
         try {
-            const response = await axios.put(`http://localhost:8070/user/update/${params.id}`, {
+            const response = await axios.put(`https://galaxia-explorers.onrender.com/update/${params.id}`, {
                 Fullname, Email, Jobstatus, Password }, 
             {
                 headers: {
