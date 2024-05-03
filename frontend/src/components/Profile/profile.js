@@ -18,7 +18,7 @@ export default function Profile() {
 
     const getData = async () => {
         try {
-            let result = await axios.get(`http://localhost:8070/user/get/${params.id}`);
+            let result = await axios.get(`https://galaxia-explorers.onrender.com/user/get/${params.id}`);
 
             if(result.status === 200 ){
                 setData(result.data);
@@ -31,7 +31,7 @@ export default function Profile() {
     //delete
     const deleteUser = async (_id) => {
         if (window.confirm("Are you sure that you want to delete this user account?")) {
-            const res = await axios.delete(`http://localhost:8070/user/delete/${_id}`);
+            const res = await axios.delete(`https://galaxia-explorers.onrender.com/user/delete/${_id}`);
             if (res.status === 200) {
                 window.location.href = `/`;
                 toast.error('User account deleted..!', {

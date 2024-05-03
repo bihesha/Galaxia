@@ -33,7 +33,7 @@ export default function Signup() {
       return;
     }
 
-    axios.post("http://localhost:8070/auth/add", newUser).then(() => {
+    axios.post("https://galaxia-explorers.onrender.com/auth/add", newUser).then(() => {
       alert("New User Created...");
       window.location.href = '/login';
     }).catch((error)=> {

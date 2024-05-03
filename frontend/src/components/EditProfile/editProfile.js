@@ -13,7 +13,7 @@ export default function EditForm ({userId, onClose}) {
     useEffect(() => {
         const getData = async () => {
             try {
-                const result = await axios.get(`http://localhost:8070/user/get/${userId}`);
+                const result = await axios.get(`https://galaxia-explorers.onrender.com/user/get/${userId}`);
                 const userData = result.data.user;
 
                 setId(userData._id);

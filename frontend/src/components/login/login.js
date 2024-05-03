@@ -18,7 +18,7 @@ export default function Login() {
       Email, Password
     };
 
-    axios.post("http://localhost:8070/auth/login", user).then((response)=>{
+    axios.post("https://galaxia-explorers.onrender.com/auth/login", user).then((response)=>{
       setUser(response.data.user);
       toast.success('Login successful..!', {
         position: "top-right",
