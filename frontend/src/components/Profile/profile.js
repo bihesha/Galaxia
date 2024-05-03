@@ -24,7 +24,7 @@ export default function Profile() {
                 setData(result.data);
             }
         } catch (error) {
-            console.error("Error fetching user data:", error);
+            // console.error("Error fetching user data:", error);
         }
     }
 
@@ -59,7 +59,7 @@ export default function Profile() {
                         <div className='md:ml-0'>
                             <div>
                                 <span className='font-mono text-xl text-black md:text-4xl'>{data.user?.Fullname}</span><br/>
-                                <span className='font-mono text-xs text-black md:text-xl'>Software Engineer</span>
+                                <span className='font-mono text-xs text-black md:text-xl'>{data.user?.JobStatus}</span>
                             </div>
                         </div>
                         <div className='md:ml-4'>
@@ -81,7 +81,7 @@ export default function Profile() {
                                 <span className='font-mono text-xs text-black md:text-xl'>Email : {data.user?.Email}</span>
                             </div>
                             <div className='grid pt-4'>
-                                <span className='font-mono text-xs text-black md:text-xl'>Job Status : Software Engineer</span>
+                                <span className='font-mono text-xs text-black md:text-xl'>Job Status : {data.user?.JobStatus}</span>
                             </div>
                             <div className='grid pt-4'>
                                 <span className='font-mono text-xs text-black md:text-xl'>Password : xxxx xxx xxx</span>

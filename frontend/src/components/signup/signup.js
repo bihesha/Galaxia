@@ -8,6 +8,7 @@ export default function Signup() {
 
   const [Fullname, setName] = useState("");
   const [Email, setEmail] = useState("");
+  const [JobStatus, setJobStatus] = useState("");
   const [Password, setPassword] = useState("");
   const [Confirmpassword, setConfirmPassword] = useState("");
 
@@ -15,7 +16,7 @@ export default function Signup() {
     e.preventDefault();
 
     const newUser = {
-      Fullname, Email, Password, Confirmpassword
+      Fullname, Email, JobStatus, Password, Confirmpassword
     };
 
     if (Password !== Confirmpassword) {
@@ -63,6 +64,12 @@ export default function Signup() {
                 <label className="block mb-1 text-xl font-semibold" htmlFor="email">Email</label>
                 <input className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" type="email" id="email" name="email" placeholder="Enter your email" onChange={(e)=>{
                   setEmail(e.target.value);
+                }} required/>
+            </div>
+            <div>
+                <label className="block mb-1 text-xl font-semibold" htmlFor="jobstatus">Job Status</label>
+                <input className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" type="text" id="jobstatus" name="jobstatus" placeholder="Enter your job status" onChange={(e)=>{
+                  setJobStatus(e.target.value);
                 }} required/>
             </div>
             <div>

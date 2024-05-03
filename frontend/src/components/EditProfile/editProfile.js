@@ -6,6 +6,7 @@ export default function EditForm ({userId, onClose}) {
     const [id, setId] = useState('');
     const [Fullname, setFullname] = useState('');
     const [Email, setEmail] = useState('');
+    const [Jobstatus, setJobStatus] = useState("");
     const [Password, setPassword] = useState('');
     const params = useParams();
 
@@ -18,9 +19,10 @@ export default function EditForm ({userId, onClose}) {
                 setId(userData._id);
                 setFullname(userData.Fullname);
                 setEmail(userData.Email);
+                setJobStatus(userData.JobStatus);
                 setPassword(userData.Password);
             } catch (error) {
-                console.error("Error fetching user data:", error);
+                // console.error("Error fetching user data:", error);
             }
         }
         getData();
@@ -33,7 +35,7 @@ export default function EditForm ({userId, onClose}) {
     const updateUser = async () => {
         try {
             const response = await axios.put(`http://localhost:8070/user/update/${params.id}`, {
-                Fullname, Email, Password }, 
+                Fullname, Email, Jobstatus, Password }, 
             {
                 headers: {
                     'Content-Type': 'application/json'
@@ -62,6 +64,10 @@ export default function EditForm ({userId, onClose}) {
                         <div className="mb-4">
                             <label className="font-sans font-bold">Email:</label>
                             <input type="email" id="email" value={Email} onChange={(e) => setEmail(e.target.value)} className="w-full p-2 border rounded-md" />
+                        </div>
+                        <div className="mb-4">
+                            <label className="font-sans font-bold">Job Status:</label>
+                            <input type="text" id="jobstatus" value={Jobstatus} onChange={(e) => setJobStatus(e.target.value)} className="w-full p-2 border rounded-md" />
                         </div>
                         <div className="mb-4">
                             <label className="font-sans font-bold">Password:</label>

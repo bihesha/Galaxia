@@ -10,7 +10,7 @@ export default function APODSearch() {
       const response = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=kKSHGjiFgdVCGK3CcxyGLsxqKJnyGuIZaQAGpsnU&date=${selectedDate}`);
       setAPODData(response.data);
     } catch (error) {
-      console.error('Error fetching APOD data:', error);
+      // console.error('Error fetching APOD data:', error);
     }
   };
 

@@ -9,7 +9,7 @@ export default function EPICSearch() {
       const response = await axios.get(`https://api.nasa.gov/EPIC/api/natural/date/2019-05-30?api_key=kKSHGjiFgdVCGK3CcxyGLsxqKJnyGuIZaQAGpsnU`);
       setEPICData(response.data[0]);
     } catch (error) {
-      console.error('Error fetching EPIC data:', error);
+      // console.error('Error fetching EPIC data:', error);
     }
   };
 

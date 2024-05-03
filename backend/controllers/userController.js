@@ -7,12 +7,14 @@ const updateUser = async (req, res) => {
     const {
       Fullname,
       Email,
+      JobStatus,
       Password,
     } = req.body;
 
     const updateUser = {
       Fullname,
       Email,
+      JobStatus,
       Password,
     };
 

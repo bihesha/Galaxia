@@ -11,6 +11,10 @@ const userSchema = new Schema({
       type : String,
       required : true
    },
+   JobStatus : {
+      type : String,
+      required : true
+   },
    Password : {
       type : String,
       required : true

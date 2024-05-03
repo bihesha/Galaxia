@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 // Handles registering a user with the system
 const registerUser = async (req, res) => {
   try {
-    const { Fullname, Email, Password } = req.body;
+    const { Fullname, Email, JobStatus, Password } = req.body;
 
     const user = await User.findOne({ Email });
 
@@ -15,6 +15,7 @@ const registerUser = async (req, res) => {
       const newUser = new User({
         Fullname,
         Email,
+        JobStatus,
         Password: hashedPassword,
       });
 

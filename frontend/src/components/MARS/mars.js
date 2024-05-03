@@ -24,7 +24,7 @@ export default function Mars() {
       setCameras(response.data.rover.cameras);
       setSelectedCamera(response.data.rover.cameras[0].name);
     } catch (error) {
-      console.error('Error fetching cameras:', error);
+      // console.error('Error fetching cameras:', error);
     }
   };
 
@@ -39,7 +39,7 @@ export default function Mars() {
       });
       setImages(response.data.photos);
     } catch (error) {
-      console.error('Error fetching images:', error);
+      // console.error('Error fetching images:', error);
     }
   };
 
