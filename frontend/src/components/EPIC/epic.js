@@ -4,11 +4,18 @@ import axios from 'axios';
 export default function EPICSearch() {
   const [date, setDate] = useState('');
   const [epicData, setEPICData] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const fetchEPICData = async (selectedDate) => {
     try {
       const response = await axios.get(`https://api.nasa.gov/EPIC/api/natural/date/${selectedDate}?api_key=kKSHGjiFgdVCGK3CcxyGLsxqKJnyGuIZaQAGpsnU`);
-      setEPICData(response.data[0]);
+      if (response.data.length > 0) {
+        setEPICData(response.data[0]);
+        setErrorMessage('');
+      } else {
+        setEPICData(null);
+        setErrorMessage('No image available for the selected date.');
+      }
     } catch (error) {
       // console.error('Error fetching EPIC data:', error);
     }
@@ -16,6 +23,7 @@ export default function EPICSearch() {
 
   useEffect(() => {
     const currentDate = getCurrentDate();
+    setDate(currentDate);
     fetchEPICData(currentDate);
   }, []);
 
@@ -45,12 +53,14 @@ export default function EPICSearch() {
             <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="mr-2 border border-gray-300 rounded px-4 py-2" />
             <button type="submit" className="bg-purple-500 hover:bg-purple-800 duration-500 text-white font-bold py-2 px-4 rounded">Search</button>
           </form>
-          {epicData && (
+          {epicData ? (
             <div className="max-w-xs mb-20 md:max-w-6xl md:px-44">
               <img src={`https://epic.gsfc.nasa.gov/archive/natural/${epicData.date.slice(0, 4)}/${epicData.date.slice(5, 7)}/${epicData.date.slice(8, 10)}/png/${epicData.image}.png`} alt={epicData.caption} className="mb-4 rounded-lg" />
               <h2 className="mb-2 font-mono text-xl font-bold">{epicData.caption}</h2>
               <p className="font-sans text-justify text-gray-700">{epicData.date}</p>
             </div>
+          ) : (
+            <p className='text-red-500 font-bold'>{errorMessage}</p>
           )}
       </div>
     </>
